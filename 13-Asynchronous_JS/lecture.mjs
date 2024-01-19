@@ -11,9 +11,9 @@
 // Async callback functions
 // Need to pass a callback function to process a result of async function execution.
 // In this case we need to keep in mind all possible variants - positive case and errors
-import request from 'request'
 
-request.get('https://pokeapi.co/api/v2/pokemon/1/', (error, response, body)=>{
+
+fetch.get('https://pokeapi.co/api/v2/pokemon/1/', (error, response, body)=>{
   if(error){
     console.error(error)
   } else {
@@ -21,7 +21,7 @@ request.get('https://pokeapi.co/api/v2/pokemon/1/', (error, response, body)=>{
     const pokemonObj = JSON.parse(body)
     console.log(pokemonObj.name)
 
-    request.get(pokemonObj.species.url, (error, response, body)=>{
+    fetch.get(pokemonObj.species.url, (error, response, body)=>{
       if(error){
         console.error(error)
       } else {
